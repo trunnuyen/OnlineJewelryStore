@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_LayoutHomePage.cshtml";
+}
+@model IEnumerable<JewelryStore.Models.Blogs>
+
+
+
+<section class="main_blog_area p_100">
+    <div class="container">
+        <div class="row blog_area_inner">
+            <div class="col-lg-9">
+                @foreach (var item in Model)
+                {
+                    <div class="main_blog_inner">
+                        <div class="blog_item">
+                            <div class="blog_img">
+                                <img class="img-fluid" width="840" height="360" src="~/img/Item/@item.Picture" alt="">
+                            </div>
+                            <div class="blog_text">
+                                <div class="blog_time">
+                                    <div class="float-left">
+                                        <a href="#">05/04/2021 12:00:00 SA</a>
+                                    </div>
+                                    <div class="float-right">
+                                        <ul class="list_style">
+                                            <li><a href="#">By :  Admin</a></li>
+                                            <li><a href="#">rings, diamond</a></li>
+                                            <li><a href="#">Comments: 8</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <a href="#"><h4>@item.Title</h4></a>
+                                <p>@item.ShortTitle</p>
+                                <a class="pink_more" href="@Url.Action("BlogDetail","JewelryStore",new {id=item.ID})">See more</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                }
+
+            </div>
+            <div class="col-lg-3">
+                <div class="right_sidebar_area">
+                    <aside class="r_widget search_widget">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter key words">
+                            <div class="input-group-append">
+                                <button class="btn" type="button"><i class="icon icon-Search"></i></button>
+                            </div>
+                        </div>
+                    </aside>
+                    <aside class="r_widget categories_widget">
+                        <div class="r_title">
+                            <h3>Product Types</h3>
+                        </div>
+                        <ul class="list_style">
+                            <li><a href="@Url.Action("Ring","JewelryStore")">Ring</a></li>
+                            <li><a href="@Url.Action("Bracelet","JewelryStore")">Bracelet</a></li>
+                            <li><a href="@Url.Action("Necklace","JewelryStore")">Necklace</a></li>
+                            <li><a href="@Url.Action("Brand","JewelryStore")">Brand</a></li>
+                        </ul>
+                    </aside>
+
+                    @Html.Action("RecentBlog", "JewelryStore")
+
+                    <aside class="r_widget tags_widget">
+                        <div class="r_title">
+                            <h3>Tags</h3>
+                        </div>
+                        <ul class="list_style">
+                            <li><a href="#">Beayty Tips</a></li>
+                            <li><a href="#">Ring</a></li>
+                            <li><a href="#">Gold</a></li>
+                            <li><a href="#">Face</a></li>
+                            <li><a href="#">Cool</a></li>
+                            <li><a href="#">Diamond</a></li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Blog Main Area =================-->
+<!--================Newsletter Area =================-->
+<section class="newsletter_area">
+    <div class="container">
+        <div class="row newsletter_inner">
+            <div class="col-lg-6">
+                <div class="news_left_text">
+                    <h4>Leave your email to get more information about products</h4>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="newsletter_form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Email Address">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button">Comfirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,10 @@
+﻿
+@model IEnumerable<JewelryStore.Models.ItemType>
+
+
+@foreach (var item in Model)
+{
+    <li><a href="@Url.Action("ProductbyType","JewelryStore",new { id=item.ID})">@item.TypeName</a></li>
+
+}
+
